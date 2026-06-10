@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Bisnis Digital Website</title>
+    <!-- Tailwind CSS untuk styling cepat dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="png" href="XI_20260208_235640_0000.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        primary: '#1E3A8A', /* Blue 900 */
+                        secondary: '#3B82F6', /* Blue 500 */
+                        accent: '#DBEAFE', /* Blue 100 */
+                        dark: '#0F172A',
+                        light: '#F8FAFC'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+        
+        /* Animasi Marquee (Foto Berjalan) */
+        .marquee-wrapper {
+            overflow: hidden;
+            width: 100%;
+            background: #fff;
+            padding: 20px 0;
+            display: flex;
+        }
+        .marquee-content {
+            display: flex;
+            animation: scroll 25s linear infinite;
+            width: calc(300px * 10); /* Sesuaikan dengan jumlah foto */
+        }
+        .marquee-content img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Glassmorphism untuk form */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(30, 58, 138, 0.1);
+        }
+
+        /* Hero Image Overlay Fade */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(30, 58, 138, 0.8));
+        }
+
+        /* Transisi Halaman Wali Kelas */
+        .page-section { display: block; }
+        .hidden-section { display: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-secondary selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="showMainPage()">
+                <span class="text-2xl font-bold text-primary tracking-wider">XII Bisnis Digital<span class="text-secondary">.</span></span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-gray-600 hover:text-primary font-semibold transition">Home</a>
+                <a href="#students" class="text-gray-600 hover:text-primary font-semibold transition">Siswa</a>
+                <a href="#about" class="text-gray-600 hover:text-primary font-semibold transition">About Us</a>
+                <a href="#contact" class="text-gray-600 hover:text-primary font-semibold transition">Contact</a>
+                <button onclick="document.getElementById('absen-modal').classList.remove('hidden')" class="bg-primary hover:bg-blue-800 text-white px-5 py-2 rounded-full font-semibold transition shadow-lg shadow-blue-900/30">
+                    Portal Sekretaris
+                </button>
+            </div>
+
+            <div class="flex md:hidden">
+                <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-primary focus:outline-none text-2xl">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-3 shadow-lg" id="mobile-menu">
+        <a href="#home" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-semibold py-2">Home</a>
+        <a href="#students" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-semibold py-2">Siswa</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-semibold py-2">About Us</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="block text-gray-600 hover:text-primary font-semibold py-2">Contact</a>
+        <button onclick="toggleMobileMenu(); document.getElementById('absen-modal').classList.remove('hidden')" class="w-full bg-primary text-white text-center py-3 rounded-xl font-semibold block shadow-md">
+            Portal Sekretaris
+        </button>
+    </div>
+</nav>
+
+    <!-- KONTEN HALAMAN UTAMA -->
+    <main id="main-page" class="page-section">
+        
+        <!-- 1. HERO SECTION -->
+        <section id="home" class="relative h-screen hero-bg flex items-center justify-center">
+            <div class="absolute inset-0 hero-overlay"></div>
+            <div class="relative z-10 text-center px-4 text-white">
+                <p class="text-secondary font-semibold tracking-widest uppercase mb-3 text-sm md:text-base">Tahun Ajaran 2026/2027</p>
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">Bisnis Digital</h1>
+                <h2 class="text-2xl md:text-4xl font-light mb-6 text-gray-200">SMK Negeri 8 Jakarta</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-8 rounded-full"></div>
+                <p class="max-w-2xl mx-auto text-gray-300 mb-10 text-lg">
+                    Membangun masa depan dengan merubah pola pikir tentang dunia Digital Marketing
+                </p>
+                <!-- Portal Walas Button -->
+                <button onclick="showWalasPage()" class="group relative px-8 py-4 bg-white text-primary font-bold rounded-full overflow-hidden shadow-2xl hover:scale-105 transition-all duration-300">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fas fa-user-tie"></i> Portal Wali Kelas
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. DAFTAR SISWA SECTION -->
+        <section id="students" class="py-24 bg-light">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Anggota Kelas</h2>
+                    <p class="text-gray-500">Mengenal lebih dekat para kreator di balik layar.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- Siswa 1 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Siswa 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Fahrezi Pugliarra</h3>
+                        <p class="text-secondary text-sm">Ketua Kelas</p>
+                    </div>
+                    <!-- Siswa 2 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="Siswa 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Audita Nur Syifa</h3>
+                        <p class="text-secondary text-sm">Wakil Ketua Kelas</p>
+                    </div>
+                    <!-- Siswa 3 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Siswa 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Eka Handini</h3>
+                        <p class="text-secondary text-sm">Sekretaris 1</p>
+                    </div>
+                    <!-- Siswa 4 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Siswa 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Resyifa Farianda</h3>
+                        <p class="text-secondary text-sm">Sekretaris 2</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Siswa 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Syifa Aisyari</h3>
+                        <p class="text-secondary text-sm">Bendahara 1</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Siswa 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Sherill Ghina Ravinka</h3>
+                        <p class="text-secondary text-sm">Bendahara 2</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Siswa 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Diana Putri</h3>
+                        <p class="text-secondary text-sm">Bendahara</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Siswa 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Diana Putri</h3>
+                        <p class="text-secondary text-sm">Bendahara</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Siswa 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Diana Putri</h3>
+                        <p class="text-secondary text-sm">Bendahara</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-shadow duration-300 text-center group">
+                        <div class="overflow-hidden rounded-xl mb-4 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Siswa 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="font-bold text-lg text-dark">Diana Putri</h3>
+                        <p class="text-secondary text-sm">Bendahara</p>
+                    </div>
+                    <!-- Tambahkan siswa lain di sini sesuai kebutuhan -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ABOUT US SECTION -->
+        <section id="about" class="py-24 bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 mb-16">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Filosofi & Jurusan Kami</h2>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Kelas 12 Bisnis Digital adalah sebuah kelas yang mempelajari ilmu digital marketing dan fokus utama untuk memasarkan suatu produk agar bisa di jangkau luas oleh media sosial.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed border-l-4 border-secondary pl-4 italic">
+                            "Menyusun logika, merajut karya, untuk teknologi yang bermakna."
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 bg-accent rounded-2xl p-8 text-primary shadow-inner">
+                        <h3 class="font-bold text-xl mb-4"><i class="fas fa-laptop-code mr-2"></i> Fokus Kompetensi</h3>
+                        <ul class="space-y-3 font-medium">
+                            <li><i class="fas fa-check text-secondary mr-2"></i> Digital Marketing</li>
+                            <li><i class="fas fa-check text-secondary mr-2"></i> Sosial Media Spesialis</li>
+                            <li><i class="fas fa-check text-secondary mr-2"></i> Content Creator</li>
+                            <li><i class="fas fa-check text-secondary mr-2"></i> Desain Grafis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeri Foto Horizontal Berjalan (Marquee) -->
+            <div class="w-full">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-dark">Momen Kebersamaan</h3>
+                </div>
+                <div class="marquee-wrapper">
+                    <!-- Konten diduplikat 2 kali agar animasi looping mulus -->
+                    <div class="marquee-content">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" alt="Momen 1">
+                        <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=500&q=80" alt="Momen 2">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80" alt="Momen 3">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" alt="Momen 4">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=500&q=80" alt="Momen 5">
+                        <!-- Duplikasi -->
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" alt="Momen 1">
+                        <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=500&q=80" alt="Momen 2">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80" alt="Momen 3">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" alt="Momen 4">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=500&q=80" alt="Momen 5">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- HALAMAN WALI KELAS (Disembunyikan secara default, Single Page App style) -->
+    <main id="walas-page" class="hidden-section min-h-screen pt-24 pb-12 bg-light">
+        <div class="max-w-4xl mx-auto px-4 mt-10">
+            <button onclick="showMainPage()" class="mb-8 text-primary hover:text-secondary font-semibold transition flex items-center gap-2">
+                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+            </button>
+            
+            <div class="bg-white rounded-3xl overflow-hidden shadow-2xl">
+                <div class="h-48 bg-primary relative">
+                    <!-- Pattern or color top -->
+                    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 20px 20px;"></div>
+                </div>
+                <div class="px-8 pb-12 text-center -mt-24 relative z-10">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Wali Kelas" class="w-48 h-48 object-cover rounded-full border-8 border-white shadow-xl mx-auto mb-6">
+                    <h2 class="text-4xl font-bold text-dark mb-2">Bpk. Budi Santoso, S.Kom., M.T.</h2>
+                    <p class="text-secondary font-semibold uppercase tracking-widest mb-6">Wali Kelas XII Bisnis Digital</p>
+                    
+                    <div class="max-w-2xl mx-auto bg-accent/30 rounded-2xl p-8 relative">
+                        <i class="fas fa-quote-left text-4xl text-secondary/20 absolute top-4 left-4"></i>
+                        <p class="text-gray-700 italic text-lg leading-relaxed relative z-10">
+                            "Menjadi wali kelas dari anak-anak yang penuh potensi ini adalah sebuah kebanggaan. Harapan bapak, jadilah programmer yang tidak hanya pintar menulis kode, tetapi juga memiliki etika, empati, dan dedikasi untuk membangun bangsa."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL FORM ABSENSI (Hanya untuk Sekretaris) -->
+    <div id="absen-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm" onclick="document.getElementById('absen-modal').classList.add('hidden')"></div>
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
+            <div class="relative glass-card rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-lg w-full p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-primary">Portal Absensi</h3>
+                    <button onclick="document.getElementById('absen-modal').classList.add('hidden')" class="text-gray-400 hover:text-red-500 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="attendance-form" onsubmit="submitAbsen(event)">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Nama Siswa</label>
+                        <input type="text" id="nama" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Keterangan Izin</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="status" value="Sakit" class="peer sr-only" required>
+                                <div class="text-center py-2 border rounded-lg peer-checked:bg-secondary peer-checked:text-white peer-checked:border-secondary hover:bg-gray-50 transition">Sakit</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="status" value="Izin" class="peer sr-only">
+                                <div class="text-center py-2 border rounded-lg peer-checked:bg-yellow-500 peer-checked:text-white peer-checked:border-yellow-500 hover:bg-gray-50 transition">Izin</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="status" value="Alpha" class="peer sr-only">
+                                <div class="text-center py-2 border rounded-lg peer-checked:bg-red-500 peer-checked:text-white peer-checked:border-red-500 hover:bg-gray-50 transition">Alpha</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Alasan / Keterangan Detail</label>
+                        <textarea id="keterangan" rows="3" placeholder="Contoh: Demam, Acara Keluarga, dll." required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition"></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-submit-absen" class="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-800 transition duration-300 shadow-lg">
+                        Input ke Spreadsheet
+                    </button>
+                    <p id="pesan-sukses" class="text-green-600 font-semibold mt-4 text-center hidden">Data berhasil disimpan!</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. FOOTER / CONTACT SECTION -->
+    <footer id="contact" class="bg-dark text-gray-300 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-gray-700 pb-12 mb-8">
+                
+                <!-- Info Sekolah -->
+                <div>
+                    <h3 class="text-white text-2xl font-bold mb-6">Alamat Sekolah</h3>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-3 text-secondary"></i> Jl. Pejaten Barat No 1.</p>
+                    <p class="mb-2 pl-7">Kec. Pasar Minggu, Kota Jakarta Selatan</p>
+                    <p class="mt-4"><i class="fas fa-envelope mr-3 text-secondary"></i> cd</p>
+                </div>
+
+                <!-- Contact Person -->
+                <div>
+                    <h3 class="text-white text-2xl font-bold mb-6">Hubungi Kami</h3>
+                    <p class="mb-4 text-sm">Untuk keperluan ekstrakurikuler, kolaborasi acara, atau informasi kelas, hubungi Ketua Kelas kami.</p>
+                    <div class="bg-gray-800 p-4 rounded-xl flex items-center gap-4">
+                        <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center text-xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Fahrezi Pugliarra (Ketua)</p>
+                            <a href="https://wa.me/6281234567890" target="_blank" class="text-secondary hover:text-white transition text-sm">+62 812-3456-7890</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linktree & Socials -->
+                <div>
+                    <h3 class="text-white text-2xl font-bold mb-6">Portal Resmi</h3>
+                    <p class="mb-6 text-sm">Kunjungi Linktree kami untuk mengakses dokumentasi tugas, drive kelas, dan portofolio.</p>
+                    
+                    <!-- Tombol Linktree -->
+                    <a href="https://linktr.ee/kelas_kalian" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 w-full justify-center mb-6">
+                        <i class="fas fa-link"></i> Kunjungi Linktree Kami
+                    </a>
+
+                    <!-- Social Media Icons (Tempat untuk diisi nanti) -->
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-sm text-gray-500">
+                <p>&copy; 2026 XII Bisnis Digital Designed with <i class="fas fa-heart text-red-500 mx-1"></i> for our beloved class.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+
+        // Fungsi untuk Buka/Tutup Menu di HP
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.replace('fa-bars', 'fa-times'); // Berubah jadi icon silang (X)
+    } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.replace('fa-times', 'fa-bars'); // Kembali jadi icon garis tiga
+    }
+}
+        // Logika Navbar mengecil saat di scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md', 'py-0');
+            } else {
+                nav.classList.remove('shadow-md', 'py-0');
+            }
+        });
+
+        // Navigasi SPA (Single Page Application) untuk halaman Wali Kelas
+        function showWalasPage() {
+            document.getElementById('main-page').classList.replace('page-section', 'hidden-section');
+            document.getElementById('walas-page').classList.replace('hidden-section', 'page-section');
+            window.scrollTo(0, 0);
+        }
+
+        function showMainPage() {
+            document.getElementById('walas-page').classList.replace('page-section', 'hidden-section');
+            document.getElementById('main-page').classList.replace('hidden-section', 'page-section');
+            window.scrollTo(0, 0);
+        }
+
+        /* * LOGIKA PENGIRIMAN DATA ABSENSI KE SPREADSHEET
+         * Catatan: Anda bisa menggunakan SheetDB.io atau Google Apps Script.
+         * Di bawah ini adalah contoh logika dasar menggunakan fetch API.
+         */
+        async function submitAbsen(e) {
+            e.preventDefault(); // Mencegah reload halaman
+            
+            const btn = document.getElementById('btn-submit-absen');
+            const pesanSukses = document.getElementById('pesan-sukses');
+            const form = document.getElementById('attendance-form');
+            
+            // Ambil data dari form
+            const nama = document.getElementById('nama').value;
+            const status = document.querySelector('input[name="status"]:checked').value;
+            const keterangan = document.getElementById('keterangan').value;
+            const tanggal = new Date().toLocaleDateString('id-ID');
+
+            // Ubah tombol jadi loading
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyimpan...';
+            btn.disabled = true;
+
+            try {
+                /*
+                 * [PENTING] Ganti URL_API_SPREADSHEET di bawah ini dengan URL endpoint Anda.
+                 * Contoh menggunakan SheetDB: 'https://sheetdb.io/api/v1/API_ID_ANDA'
+                 */
+                const URL_API_SPREADSHEET = 'https://sheetdb.io/api/v1/2los3vszhmwex'; // URL Dummy sementara
+
+                const response = await fetch(URL_API_SPREADSHEET, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    // Struktur data disesuaikan dengan kolom spreadsheet (Nama, Status, Keterangan, Tanggal)
+                    body: JSON.stringify({
+                        data: [{
+                            "Nama": nama,
+                            "Status": status,
+                            "Keterangan": keterangan,
+                            "Tanggal": tanggal
+                        }]
+                    })
+                });
+
+                if(response.ok) {
+                    // Berhasil
+                    pesanSukses.classList.remove('hidden');
+                    form.reset();
+                    
+                    // Hilangkan pesan sukses setelah 3 detik
+                    setTimeout(() => {
+                        pesanSukses.classList.add('hidden');
+                        document.getElementById('absen-modal').classList.add('hidden'); // Tutup modal
+                    }, 3000);
+                } else {
+                    throw new Error('Gagal menyimpan');
+                }
+            } catch (error) {
+                alert('Terjadi kesalahan saat menyimpan data. Pastikan API URL sudah diatur.');
+                console.error(error);
+            } finally {
+                // Kembalikan tombol seperti semula
+                btn.innerHTML = 'Input ke Spreadsheet';
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
